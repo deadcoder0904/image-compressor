@@ -84,6 +84,10 @@ window.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         this.compress(e.dataTransfer.files ? e.dataTransfer.files : null);
       },
+
+      downloadAll() {
+        [...document.querySelectorAll('.download')].map(item => item.click());
+      },
     },
   });
 });

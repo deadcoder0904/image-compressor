@@ -164,7 +164,7 @@
                   <div :class="[oObject.outputURL ? '' : 'col-sm-12 bg-faded']">
                     <img v-if="oObject.outputURL" :src="oObject.outputURL" :alt="oObject.name">
                     <div v-if="oObject.outputURL" class="text-center my-2">
-                      <a class="btn btn-sm btn-blocks btn-outline-primary" :download="oObject.name" :href="oObject.outputURL">Download</a>
+                      <a class="btn btn-sm btn-blocks btn-outline-primary download" :download="oObject.name" :href="oObject.outputURL">Download</a>
                     </div>
                   </div>
                 </div>
@@ -189,6 +189,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="text-center my-2" @click="downloadAll">
+        <span class="btn btn-sm btn-blocks btn-outline-warning">Download All</span>
       </div>
     </div>
   </div>
