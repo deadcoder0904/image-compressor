@@ -655,7 +655,7 @@ var ImageCompressor = function () {
       var _this = this;
 
       var image = new Image();
-
+      file.oSize = file.size;
       options = _extends({}, DEFAULTS, options);
 
       if (!ArrayBuffer$1) {
@@ -835,6 +835,7 @@ var ImageCompressor = function () {
             result.lastModified = date.getTime();
             result.lastModifiedDate = date;
             result.name = file.name;
+            result.oSize = file.oSize;
 
             // Convert the extension to match its type
             if (result.name && result.type !== file.type) {
