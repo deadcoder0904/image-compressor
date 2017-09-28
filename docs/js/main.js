@@ -1,13 +1,13 @@
 window.addEventListener('DOMContentLoaded', () => {
-  var Vue = window.Vue;
-  var URL = window.URL || window.webkitURL;
-  var ImageCompressor = window.ImageCompressor;
+  const Vue = window.Vue;
+  const URL = window.URL || window.webkitURL;
+  const ImageCompressor = window.ImageCompressor;
 
   new Vue({
     el: '#app',
 
-    data: function () {
-      var vm = this;
+    data() {
+      const vm = this;
 
       return {
         options: {
@@ -20,17 +20,17 @@ window.addEventListener('DOMContentLoaded', () => {
           quality: 0.8,
           mimeType: '',
           convertSize: 5000000,
-          success: function (file) {
+          success(file) {
             console.log('Output: ', file);
 
             if (URL) {
-              file.outputURL=URL.createObjectURL(file);
+              file.outputURL = URL.createObjectURL(file);
             }
 
             vm.output.push(file);
             vm.$refs.input.value = '';
           },
-          error: function (e) {
+          error(e) {
             window.alert(e.message);
           },
         },
@@ -40,16 +40,16 @@ window.addEventListener('DOMContentLoaded', () => {
     },
 
     filters: {
-      prettySize: function (size) {
-        var kilobyte = 1024;
-        var megabyte = kilobyte * kilobyte;
+      prettySize(size) {
+        const kilobyte = 1024;
+        const megabyte = kilobyte * kilobyte;
 
         if (size > megabyte) {
-          return (size / megabyte).toFixed(2) + ' MB';
+          return `${(size / megabyte).toFixed(2)} MB`;
         } else if (size > kilobyte) {
-          return (size / kilobyte).toFixed(2) + ' KB';
+          return `${(size / kilobyte).toFixed(2)} KB`;
         } else if (size >= 0) {
-          return size + ' B';
+          return `${size} B`;
         }
 
         return 'N/A';
@@ -57,31 +57,30 @@ window.addEventListener('DOMContentLoaded', () => {
     },
 
     methods: {
-      compress: function (file) {
+      compress(file) {
         if (!file) {
           return;
         }
         this.input = [];
         this.output = [];
-        for(var i = 0 ; i < file.length ; ++i){
+        for (let i = 0; i < file.length; ++i) {
           if (URL) {
             file[i].inputURL = URL.createObjectURL(file[i]);
           }
           this.input.push(file[i]);
           new ImageCompressor(file[i], this.options);
         }
-
       },
 
-      change: function (e) {
+      change(e) {
         this.compress(e.target.files ? e.target.files : null);
       },
 
-      dragover: function(e) {
+      dragover(e) {
         e.preventDefault();
       },
 
-      drop: function(e) {
+      drop(e) {
         e.preventDefault();
         this.compress(e.dataTransfer.files ? e.dataTransfer.files : null);
       },
