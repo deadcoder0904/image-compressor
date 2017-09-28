@@ -5,7 +5,7 @@
  * Copyright (c) 2017 Xkeshi
  * Released under the MIT license
  *
- * Date: 2017-09-21T02:42:37.387Z
+ * Date: 2017-09-28T17:18:00.583Z
  */
 
 function createCommonjsModule(fn, module) {
@@ -860,3 +860,4 @@ var ImageCompressor = function () {
 }();
 
 export default ImageCompressor;
+//# sourceMappingURL=image-compressor.esm.js.map

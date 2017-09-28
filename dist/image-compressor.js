@@ -5,7 +5,7 @@
  * Copyright (c) 2017 Xkeshi
  * Released under the MIT license
  *
- * Date: 2017-09-21T02:42:37.387Z
+ * Date: 2017-09-28T17:18:00.583Z
  */
 
 (function (global, factory) {
@@ -868,3 +868,4 @@ var ImageCompressor = function () {
 return ImageCompressor;
 
 })));
+//# sourceMappingURL=image-compressor.js.map
