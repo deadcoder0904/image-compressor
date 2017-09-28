@@ -5,7 +5,7 @@
  * Copyright (c) 2017 Xkeshi
  * Released under the MIT license
  *
- * Date: 2017-09-28T17:18:00.583Z
+ * Date: 2017-09-28T17:31:34.362Z
  */
 
 function createCommonjsModule(fn, module) {
